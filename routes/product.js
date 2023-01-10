@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const {
-  readSanPham
-} = require("../controllers/sanPham");
+  readProduct
+} = require("../controllers/product");
 
-router.get("/sanPham", readSanPham); 
+router.get("/", readProduct); 
 
 module.exports = router;

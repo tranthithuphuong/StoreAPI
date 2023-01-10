@@ -19,3 +19,5 @@ UserInformation.read = function (id, result) {
         }
     })
 }
+
+module.exports = UserInformation;

@@ -4,6 +4,6 @@ const {
   readUserInformation
 } = require("../controllers/userInformation");
 
-router.get("/userInformation", readUserInformation); 
+router.get("/", readUserInformation); 
 
 module.exports = router;

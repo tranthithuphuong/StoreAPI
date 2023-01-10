@@ -1,6 +1,5 @@
 const express = require('express');
 const { json } = require('express/lib/response');
-const nodemailer = require("nodemailer");
 const mysql = require('mysql2');
 
 const bodyParser = require('body-parser');
@@ -40,21 +39,26 @@ app.use(bodyParser.json());
 
 
 //Routes
-
-const sanPhamRoutes = require("./routes/sanPham");
+const categoryRoutes = require("./routes/category")
+const productRoutes = require("./routes/product");
 const userInformationRoutes = require("./routes/userInformation");
-const thongTinTaiKhoanRoutes = require("./routes/thongTinTaiKhoan");
+const accountInformationRoutes = require("./routes/accountInformation");
+const saleOffRoutes = require("./routes/saleOff")
 
+//API lấy thông tin danh mục
+app.use('/category', categoryRoutes);
 
 //API lấy thông tin sản phẩm
-app.use("/sanPham", sanPhamRoutes)
+app.use("/product", productRoutes);
 
 //API lấy thông tin người dùng qua thông tin tài khoản
 app.use("/userInformation", userInformationRoutes);
 
-//API tạo thông tin tài khoản phần đăng nhập
-app.use("/thongTinTaiKhoan", thongTinTaiKhoanRoutes);
+//API lấy thông tin tài khoản phần đăng nhập
+app.use("/accountInformation", accountInformationRoutes);
 
+//API  thông tin ưu đãi
+app.use("/saleOff", saleOffRoutes)
 
 //Mở một cổng 3000 để chạy
 app.listen(port, () => {
