@@ -44,6 +44,8 @@ const productRoutes = require("./routes/product");
 const userInformationRoutes = require("./routes/userInformation");
 const accountInformationRoutes = require("./routes/accountInformation");
 const saleOffRoutes = require("./routes/saleOff")
+const orderRoutes = require("./routes/order")
+const orderDetailRoutes = require("./routes/orderDetail")
 
 //API lấy thông tin danh mục
 app.use('/category', categoryRoutes);
@@ -59,6 +61,12 @@ app.use("/accountInformation", accountInformationRoutes);
 
 //API  thông tin ưu đãi
 app.use("/saleOff", saleOffRoutes)
+
+//API tạo order
+app.use("/order", orderRoutes)
+
+//API lấy chi tiết order
+app.use("/orderDetail", orderDetailRoutes)
 
 //Mở một cổng 3000 để chạy
 app.listen(port, () => {
